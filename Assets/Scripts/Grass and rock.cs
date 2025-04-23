@@ -24,7 +24,7 @@ public class GrassAndRockSpawner : MonoBehaviour
             float z = Random.Range(bounds.min.z, bounds.max.z);
             Vector3 position = new Vector3(x, 0f, z);
 
-            // Only continue if this spot is clear (ignoring the object this script is on)
+
             Collider[] overlaps = Physics.OverlapSphere(position + Vector3.up * 0.5f, checkRadius);
             bool blocked = false;
             foreach (var col in overlaps)
@@ -58,7 +58,8 @@ public class GrassAndRockSpawner : MonoBehaviour
                 );
             }
 
-            Instantiate(prefabToSpawn, position, rotation);
+            GameObject decor = Instantiate(prefabToSpawn, position, rotation);
+            decor.transform.parent = transform;
             spawned++;
         }
     }
