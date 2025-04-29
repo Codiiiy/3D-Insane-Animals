@@ -4,9 +4,10 @@ public class ChickenCollision : MonoBehaviour
 {
     public Chicken_movement chicken;
     public Wolf_Chase chaser;
-    private void OnTriggerEnter2D(Collider2D other)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if(!chicken.isJumping || chicken.isRailJump)
+        if (!chicken.isJumping || chicken.isRailJump)
         {
             if (other.CompareTag("Seed"))
             {
@@ -15,6 +16,7 @@ public class ChickenCollision : MonoBehaviour
             }
             else if (other.CompareTag("Obstacle"))
             {
+                //Debug.Log("Collision");
                 Destroy(other.gameObject);
                 HandleObstacleCollision();
             }
@@ -35,7 +37,6 @@ public class ChickenCollision : MonoBehaviour
             }
             else if (other.CompareTag("EndTrigger"))
             {
-
                 chicken.moveSpeed = 0;
             }
         }
@@ -46,6 +47,7 @@ public class ChickenCollision : MonoBehaviour
         chaser.OnHit();
         Game_Manager.instance.ObstacleCollision();
     }
+
     private void LifeUp()
     {
         chaser.LifeUp();

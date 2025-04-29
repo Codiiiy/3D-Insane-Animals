@@ -4,10 +4,11 @@ using System.Collections.Generic;
 public class ObjectSpawner : MonoBehaviour
 {
     [Header("Spawn Settings")]
-    public List<GameObject> spawnPrefabs;
+    public List<GameObject> obstacles;
+    public List<GameObject> powerups;
     public int maxObjects = 3;
     public float minDistance = 4f;
-    [Range(0, 100)] public int emptySpawnChance = 50;
+    [Range(0, 100)] public int obstacleSpawnChance = 80;
 
     private float[] railX = new float[] { -3f, 0f, 3f };
     private List<GameObject> activeObjects = new List<GameObject>();
@@ -17,12 +18,6 @@ public class ObjectSpawner : MonoBehaviour
         int attempts = 0;
         while (activeObjects.Count < maxObjects && attempts < 50)
         {
-            if (Random.Range(0, 100) < emptySpawnChance)
-            {
-                attempts++;
-                continue;
-            }
-
             SpawnObject();
             attempts++;
         }
@@ -30,12 +25,17 @@ public class ObjectSpawner : MonoBehaviour
 
     void SpawnObject()
     {
-        if (spawnPrefabs.Count == 0) return;
+        List<GameObject> sourceList = Random.Range(0, 100) < obstacleSpawnChance ? obstacles : powerups;
+        if (sourceList.Count == 0) return;
 
-        GameObject prefabToSpawn = spawnPrefabs[Random.Range(0, spawnPrefabs.Count)];
+        GameObject prefabToSpawn = sourceList[Random.Range(0, sourceList.Count)];
+
+        Quaternion prefabRotation = prefabToSpawn.transform.rotation;
+        Vector3 prefabScale = prefabToSpawn.transform.localScale;
+        float y = prefabToSpawn.transform.position.y;
         float x = railX[Random.Range(0, railX.Length)];
-        float y = transform.position.y + Random.Range(-4f, 4f);
-        Vector3 spawnPos = new Vector3(x, y, transform.position.z);
+        float z = transform.position.z + Random.Range(-4f, 4f);
+        Vector3 spawnPos = new Vector3(x, y, z);
 
         foreach (GameObject obj in activeObjects)
         {
@@ -45,9 +45,13 @@ public class ObjectSpawner : MonoBehaviour
             }
         }
 
-        GameObject newObj = Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
+        GameObject newObj = Instantiate(prefabToSpawn, prefabToSpawn.transform.position, prefabRotation);
+        newObj.transform.position = spawnPos;
+        newObj.transform.localScale = prefabScale;
+
         activeObjects.Add(newObj);
     }
+
     void OnDestroy()
     {
         foreach (GameObject obj in activeObjects)

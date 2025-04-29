@@ -54,7 +54,7 @@ public class ChunkGenerator : MonoBehaviour
                 }
             }
         }
-        if (player.position.z > activeChunks.Peek().transform.position.z + chunkHeight + 10f)
+        if (player.position.z > activeChunks.Peek().transform.position.z + chunkHeight + 20f)
         {
             GameObject oldChunk = activeChunks.Dequeue();
             if (oldChunk != null) Destroy(oldChunk);

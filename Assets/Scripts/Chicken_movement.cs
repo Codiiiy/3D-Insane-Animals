@@ -31,6 +31,13 @@ public class Chicken_movement : MonoBehaviour
         if (isPlaying)
         {
             transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
+            if (!isJumping)
+            {
+                animator.SetBool("isJumping", true);
+                Vector3 pos = transform.position;
+                pos.y = 0f;
+                transform.position = pos;
+            }
 
             if (Input.GetKeyDown(KeyCode.LeftArrow) && currentRail > 0 && !isJumping)
             {

@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class Wolf_Chase : MonoBehaviour
 {
     public Chicken_movement target;
@@ -19,41 +18,40 @@ public class Wolf_Chase : MonoBehaviour
         {
             transform.position = new Vector3(
                 target.transform.position.x,
-                Mathf.MoveTowards(transform.position.y, target.transform.position.y, followSpeed * Time.deltaTime),
-                transform.position.z
+                target.transform.position.y + 2,
+                Mathf.MoveTowards(transform.position.z, target.transform.position.z, followSpeed * Time.deltaTime)
             );
 
             gameObject.layer = 10;
-            
         }
         else if (catchingUp)
         {
-
-            float targetX = target.transform.position.y - catchUpDistance;
+            float targetZ = target.transform.position.z - catchUpDistance;
             transform.position = new Vector3(
                 target.transform.position.x,
-                Mathf.MoveTowards(transform.position.y, targetX, followSpeed * Time.deltaTime),
-                transform.position.z
+                target.transform.position.y + 2,
+                Mathf.MoveTowards(transform.position.z, targetZ, followSpeed * Time.deltaTime)
             );
-            if (transform.position.y != targetX)
+
+            if (transform.position.z != targetZ)
             {
                 followSpeed += 1;
             }
         }
         else if (target.isPlaying)
         {
-            float targetX = target.transform.position.y - followDistance;
+            float targetZ = target.transform.position.z - followDistance;
             transform.position = new Vector3(
                 Mathf.MoveTowards(transform.position.x, target.transform.position.x, followSpeed * Time.deltaTime),
-                Mathf.MoveTowards(transform.position.y, targetX, followSpeed * Time.deltaTime),
-                transform.position.z
+                transform.position.y,
+                Mathf.MoveTowards(transform.position.z, targetZ, followSpeed * Time.deltaTime)
             );
         }
     }
 
     public void OnHit()
     {
-        if(catchingUp == false)
+        if (!catchingUp)
         {
             catchingUp = true;
         }
@@ -61,7 +59,6 @@ public class Wolf_Chase : MonoBehaviour
         {
             noLives = true;
         }
-        
     }
 
     public void TriggerNoLives()
