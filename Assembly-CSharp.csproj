@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Chicken_movement.cs" />
     <Compile Include="Assets\Scripts\Object_Spawner.cs" />
     <Compile Include="Assets\Scripts\Wolf_Chase.cs" />
+    <Compile Include="Assets\Scripts\SoundFXManager.cs" />
     <Compile Include="Assets\Scripts\Chunk_Generator.cs" />
     <Compile Include="Assets\Scripts\ChickenCollision.cs" />
     <Compile Include="Assets\Scripts\Scenery_Generator.cs" />

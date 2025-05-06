@@ -39,18 +39,18 @@ public class Chicken_movement : MonoBehaviour
                 transform.position = pos;
             }
 
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && currentRail > 0 && !isJumping)
+            if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && currentRail > 0 && !isJumping)
             {
                 currentRail--;
                 StartRailJump();
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow) && currentRail < 2 && !isJumping)
+            else if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && currentRail < 2 && !isJumping)
             {
                 currentRail++;
                 StartRailJump();
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && !isJumping)
                 StartJump(jumpDuration, false);
 
             if (isJumping)
