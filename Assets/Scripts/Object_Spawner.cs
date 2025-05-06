@@ -34,7 +34,7 @@ public class ObjectSpawner : MonoBehaviour
         Vector3 prefabScale = prefabToSpawn.transform.localScale;
         float y = prefabToSpawn.transform.position.y;
         float x = railX[Random.Range(0, railX.Length)];
-        float z = transform.position.z + Random.Range(-4f, 4f);
+        float z = transform.position.z + Random.Range(-10f, 10f);
         Vector3 spawnPos = new Vector3(x, y, z);
 
         foreach (GameObject obj in activeObjects)

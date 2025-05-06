@@ -6884,7 +6884,7 @@ Transform:
   m_GameObject: {fileID: 2375724247480315913}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 9.922934, y: 125.221695, z: 0.76977193}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24195,8 +24195,12 @@ MonoBehaviour:
   rockPrefabs:
   - {fileID: 9090808988904112760, guid: 90ecdcb3590bd824f9de9bec64a12a69, type: 3}
   - {fileID: 2613861369605763572, guid: decb386ac7d943441bfcef96c5e61627, type: 3}
+  treePrefabs: []
   spawnCount: 100
   checkRadius: 0.5
+  grassSpawnPercentage: 0.6
+  rockSpawnPercentage: 0.3
+  treeSpawnPercentage: 0.1
 --- !u!1 &8987958295734997753
 GameObject:
   m_ObjectHideFlags: 0

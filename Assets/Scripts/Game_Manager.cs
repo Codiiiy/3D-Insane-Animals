@@ -36,7 +36,7 @@ public class Game_Manager : MonoBehaviour
     public GameObject countdownCanvas;
     public TMP_Text countdownText;
     private float countdown = 3f;
-    private bool countdownActive = true;
+    private bool countdownActive = false;
 
     public int lives = 2;
 
@@ -49,7 +49,14 @@ public class Game_Manager : MonoBehaviour
     void Start()
     {
         EndCanvas.SetActive(false);
+        countdownCanvas.SetActive(false);
+    }
+
+    public void StartGame()
+    {
+        ScoreCanvas.SetActive(true);
         countdownCanvas.SetActive(true);
+        countdownActive = true;
         countdownText.text = Mathf.CeilToInt(countdown).ToString();
         UpdateScoreText();
     }
@@ -193,6 +200,22 @@ public class Game_Manager : MonoBehaviour
         chicken.isPlaying = false;
         EndCanvas.SetActive(true);
         ScoreCanvas.SetActive(false);
+    }
+
+    public void Easy()
+    {
+        chicken.moveSpeed = 10f;
+        StartGame();
+    }
+    public void Medium()
+    {
+        chicken.moveSpeed = 15f;
+        StartGame();
+    }
+    public void Hard()
+    {
+        chicken.moveSpeed = 20f;
+        StartGame();
     }
 }
 
