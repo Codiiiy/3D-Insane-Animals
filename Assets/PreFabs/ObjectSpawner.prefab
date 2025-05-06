@@ -47,11 +47,12 @@ MonoBehaviour:
   obstacles:
   - {fileID: 315606238836743152, guid: 46b5886142855024298995dbae21f724, type: 3}
   - {fileID: 8628575084360878179, guid: a20bbf599cbc4624cb1f11b1ba26d1e0, type: 3}
+  - {fileID: 1351288714808865572, guid: 24223bb8d6bac7b48928774c451fddf4, type: 3}
   powerups:
   - {fileID: 2845687614141516886, guid: aadf6b282656ba547bdb9f110eb00552, type: 3}
   - {fileID: 1029554616953393549, guid: 8c45b121edfdeb348a2913de75aed1f5, type: 3}
   - {fileID: 1380220010996524694, guid: 5100e71b3a1f6ca45a279fdae44b07b6, type: 3}
   - {fileID: 7373614977452060067, guid: 7bad3aaa522d8b74eaed4b0f27e1b26c, type: 3}
-  maxObjects: 2
+  maxObjects: 8
   minDistance: 5
   obstacleSpawnChance: 80

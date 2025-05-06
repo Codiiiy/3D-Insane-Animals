@@ -75,9 +75,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9bed75b6beef361408e6ebe8a437c06e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4734620377194600390}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9bed75b6beef361408e6ebe8a437c06e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8655512297800247859}
   m_SourcePrefab: {fileID: 100100000, guid: 9bed75b6beef361408e6ebe8a437c06e, type: 3}
 --- !u!1 &9090808988904112760 stripped
 GameObject:
@@ -105,27 +102,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8655512297800247859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9090808988904112760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdd510783814c134387b902541ce750a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grassPrefabs:
-  - {fileID: 6935885801032976189, guid: 951848feb3b683c43bceb5c4aa2f6718, type: 3}
-  - {fileID: 1054607691930302778, guid: 34159e82b4caa7240a452c63ce9ab9a7, type: 3}
-  rockPrefabs:
-  - {fileID: 2613861369605763572, guid: decb386ac7d943441bfcef96c5e61627, type: 3}
-  treePrefabs:
-  - {fileID: 8932041185172642628, guid: 4c2818d38c8824b499315cb869eff9a9, type: 3}
-  spawnCount: 100
-  checkRadius: 0.2
-  grassSpawnPercentage: 0.6
-  rockSpawnPercentage: 0.3
-  treeSpawnPercentage: 0.1
