@@ -600,7 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 410453376}
-  followDistance: 10
+  followDistance: 15
   followSpeed: 8
   catchUpDistance: 7
 --- !u!65 &374409836
