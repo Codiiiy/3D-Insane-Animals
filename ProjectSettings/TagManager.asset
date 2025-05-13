@@ -9,6 +9,7 @@ TagManager:
   - PowerUp_SlowTime
   - Seed
   - 1life
+  - EndTrigger
   layers:
   - Default
   - TransparentFX
